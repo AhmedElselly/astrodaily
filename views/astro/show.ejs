@@ -1,0 +1,66 @@
+<% include ../partials/header %>
+    <div class="show-content">
+        <div class="image-container">
+            <img src="<%= astroVar.image %>">
+           
+        </div>
+        <div class="author-section">
+            <p>
+                <h5>Submitted by <em><%= astroVar.author.username %></em></h5>
+            </p>
+        </div>
+        <div>
+            <% if(currentUser && astroVar.author.id.equals(currentUser._id)) { %>
+                <div style="margin-top: 35px;">
+                    <div class="edit-post">
+                        <a href="/astro/<%= astroVar._id %>/edit" class="edit-post-btn">Edit Post</a>
+                    </div>
+                    <div>
+                        <form action="/astro/<%= astroVar._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="delete-post-btn">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% }%>
+            <div class="desc">
+                <h2><%=astroVar.title%></h2>
+                <p><%= astroVar.description %></p>
+            </div>
+            
+        </div>
+        
+    </div>  
+                        <!-- Comment Section -->
+    <div class="comment-section">
+        <form class="comment-form-control" action="/astro/<%= astroVar._id %>/comments" method="POST">
+            <!-- <input type="text" name="comment[text]" placeholder="Comment"> -->
+            <textarea name="comment[text]" class="textarea" id="" cols="30" rows="10" placeholder="Comment"></textarea>
+            <input type="submit" class="comment-btn" value="Post Comment">
+        </form>
+        <% astroVar.comments.forEach(function(comment){ %>
+            <p>
+                <strong><%= comment.author.username %></strong> - <%= comment.text %>
+            </p>
+                        <!-- SHOWING THE COMMENTS -->
+        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+            <div class="assists-buttons">
+                <button class="toggle-edit-form">Edit</button>
+                <div class="edit-review-form">
+                    <form class="comment-form-control" action="/astro/<%= astroVar._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                        <textarea name="comment[text]" id="" cols="30" rows="10"><%= comment.text %></textarea>
+                        <input type="submit" class="comment-btn" value="Update Comment">
+                    </form>
+                </div>
+
+
+                <form action="/astro/<%= astroVar._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                    <button class="toggle-edit-form">Delete</button>
+                </form>
+            </div>
+            <% } %>
+            
+            
+        <% }); %>
+    </div>
+
+<% include ../partials/footer %>

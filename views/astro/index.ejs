@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+
+<% include ../partials/paginate %>
+
+<div class="container">
+        <% astroVar.docs.forEach(function(astro){ %>
+                <div class="content">
+                        <div class="fullpage-image">
+                                <img src="<%= astro.image %>" alt="">
+                        </div>
+                        <div class="post-content">
+                                <h3 class="title-fullpage"><a href="/astro/<%= astro._id %>" class="title-fullpage"><%= astro.title %></a></h3>
+                                <p><%= astro.description.substring(0, 20) %>...</p>
+                                <a href="/astro/<%= astro._id %>">Show More</a>
+                        </div>
+                </div>
+        <% }); %>
+</div>
+
+<% include ../partials/paginate %>

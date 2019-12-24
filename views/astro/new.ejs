@@ -1,0 +1,9 @@
+<% include ../partials/header %>
+<div class="add-new-container">
+    <form class="form-control" action="/astro" method="POST" enctype="multipart/form-data">
+        <input type="text" name="astro[title]" placeholder="Title" required>
+        <input type="file" name="image" accept="image/*" placeholder="Image URL" required>
+        <textarea name="astro[description]" cols="30" rows="10" placeholder="Description" required></textarea>
+        <input class="btn" type="submit">
+    </form>
+</div>

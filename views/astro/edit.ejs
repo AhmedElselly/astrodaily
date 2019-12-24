@@ -1,0 +1,11 @@
+<% include ../partials/header %>
+<div class="container">
+
+<form class="form-control" action="/astro/<%= astroVar._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <input type="text" name="astronomy[title]" value="<%= astroVar.title %>">
+    <input type="file" name="image" accept="image/*" value="<%= astroVar.image %>">
+    <!-- <input type="text" name="astronomy[description]" value="<%= astroVar.description %>"> -->
+    <textarea name="astronomy[description]" id="" cols="30" rows="10"><%= astroVar.description %></textarea>
+    <input class="btn" type="submit">
+</form>
+</div>

@@ -1,0 +1,14 @@
+<div style="margin: 20px 150px;">
+    <% if(astroVar.page - 1){ %>
+        <a href="/astro?page=<%= astroVar.page - 1 %>">Prev</a>
+    <% } %>
+
+    <% for(let i = 1; i <= astroVar.pages; i++){ %>
+        <a href="/astro?page=<%= i %>"
+            <%= i === astroVar.page ? 'style=color:black;' : '' %>
+            ><%= i %></a>
+    <% } %>
+    <% if((astroVar.page + 1) <= astroVar.pages){ %>
+        <a href="/astro?page=<%= astroVar.page + 1 %>">Next</a>
+    <% } %>
+</div>
