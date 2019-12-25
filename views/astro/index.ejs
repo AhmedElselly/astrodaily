@@ -9,7 +9,7 @@
                                 <img src="<%= astro.image %>" alt="">
                         </div>
                         <div class="post-content">
-                                <h3 class="title-fullpage"><a href="/astro/<%= astro._id %>" class="title-fullpage"><%= astro.title %></a></h3>
+                                <h3 class="title-fullpage"><a href="/astro/<%= astro._id %>" class="title-fullpage"><%= astro.title.substring(0, 20) %>...</a></h3>
                                 <p><%= astro.description.substring(0, 20) %>...</p>
                                 <a href="/astro/<%= astro._id %>">Show More</a>
                         </div>

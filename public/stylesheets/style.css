@@ -35,7 +35,7 @@ nav a:hover{
 
 
 .title-fullpage{
-  font-size: 3rem;
+  font-size: 1rem;
   transition: all 0.3s ease-in-out;
 }
 
@@ -65,6 +65,7 @@ nav a:hover{
 
 .content .fullpage-image img{
   width: 60%;
+  height: 100%;
 }
 
 .content .post-content{
