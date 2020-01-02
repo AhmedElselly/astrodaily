@@ -102,6 +102,10 @@ nav a:hover{
 
 }
 
+.desc .article-title{
+  margin-bottom: 15px;
+}
+
 .comment-section{
   width: 60%;
   background-color: teal;
